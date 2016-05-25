@@ -41,8 +41,8 @@
           <h4>History</h4>
           <ul class="nav nav-sidebar" ng-repeat="search in searchHistory">
             <li ng-class="{'active':(searchTerm === search)}">
-              <a ng-click="delete(search)" class="deletex">x</a>
-              <a ng-click="switch(search)">{{search}}</a>
+              <a ng-click="delete(search)" class="deletex">&times; </a>
+              <a ng-click="switch(search)" class="history-entry"> {{search}}</a>
             </li>
           </ul>
         </div>
@@ -55,26 +55,6 @@
               <h4>{{article.data.title}}</h4>
               <span class="text-muted">{{article.data.author}}</span>
             </div>
-<!--        <div class="col-xs-6 col-sm-3 placeholder">
-              <img ng-src="{{articles[0].data.thumbnail}}" class="img-responsive">
-              <h4>{{articles[0].data.title}}</h4>
-              <span class="text-muted">{{articles[0].data.author}}</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img ng-src="{{articles[1].data.thumbnail}}" class="img-responsive">
-              <h4>{{articles[1].data.title}}</h4>
-              <span class="text-muted">{{articles[1].data.author}}</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img ng-src="{{articles[2].data.thumbnail}}" class="img-responsive">
-              <h4>{{articles[2].data.title}}</h4>
-              <span class="text-muted">{{articles[2].data.author}}</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img ng-src="{{articles[3].data.thumbnail}}" class="img-responsive">
-              <h4>{{articles[3].data.title}}</h4>
-              <span class="text-muted">{{articles[3].data.author}}</span>
-            </div> -->
           </div>
 
           <h2 class="sub-header">All Posts</h2>
@@ -85,13 +65,19 @@
                   <th>Votes</th>
                   <th>Title</th>
                   <th>Author</th>
+                  <th>Comments</th>
                 </tr>
               </thead>
               <tbody ng-repeat="article in articles">
                 <tr>
                   <td>{{(article.data.ups - article.data.downs)}}</td>
-                  <td>{{article.data.title}}</td>
+                  <td><a ng-href="{{article.data.url}}" target="_blank">
+                    {{article.data.title}}
+                  </a></td>
                   <td>{{article.data.author}}</td>
+                  <td><a ng-href="http://reddit.com{{article.data.permalink}}" target="_blank">
+                    {{article.data.num_comments}}
+                  </a></td>
                 </tr>
               </tbody>
             </table>
