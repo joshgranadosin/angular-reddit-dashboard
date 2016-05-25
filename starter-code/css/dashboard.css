@@ -124,3 +124,7 @@ body {
   color: red;
   background: none;
 }
+
+.h4{
+  text-overflow: ellipsis;
+}
