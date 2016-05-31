@@ -21,7 +21,7 @@ redditDashApp.controller("redditDashCtrl", ['$scope', '$http', function($scope, 
 	};
 
 	validateThumbnail = function(s){
-		if (s === 'self' || s === 'default' || s === ''){
+		if (s === 'self' || s === 'default' || s === 'nsfw' || s === ''){
 			return false;
 		}
 		else{
